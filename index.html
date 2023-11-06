@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Catalog Note</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>CATALOG DE NOTE</h1>
+      <div id="add-student-container">
+        <input
+          type="text"
+          placeholder="Adaugati noul student"
+          id="add-student-name"
+        />
+        <button id="add-student-btn">Adauga</button>
+      </div>
+      <div class="table-container">
+        <table id="students-table">
+          <thead>
+            <th>
+              Nume
+              <button id="sort-name-asc">↑</button>
+              <button id="sort-name-desc">↓</button>
+            </th>
+            <th>
+              Medie note
+              <button id="sort-medie-asc">↑</button>
+              <button id="sort-medie-desc">↓</button>
+            </th>
+            <th>Note student</th>
+            <th>Sterge student</th>
+          </thead>
+          <tbody id="students-table-body"></tbody>
+        </table>
+        <div class="grades-table-container hide-grades">
+          <div>
+            <button id="hide-grades">Ascunde notele</button>
+            <p>Note student: <span id="student-name-note"></span></p>
+          </div>
+          <div id="add-grade">
+            <input
+              type="number"
+              placeholder="Introduceti nota"
+              min="1"
+              max="10"
+              id="grade-input"
+            />
+            <button id="add-grade-btn">Adauga nota studentului</button>
+          </div>
+          <div>
+            <button class="sort-grades-asc sort-grades">
+              Sortare crescatoare
+            </button>
+            <button class="sort-grades-desc sort-grades">
+              Sortare descrescatoare
+            </button>
+          </div>
+          <table>
+            <thead>
+              <th>Note</th>
+              <th>X</th>
+            </thead>
+            <tbody id="grades-table"></tbody>
+          </table>
+        </div>
+      </div>
+      <script type="module" src="app.js"></script>
+    </div>
+  </body>
+</html>

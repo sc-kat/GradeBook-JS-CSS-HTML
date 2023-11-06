@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+h1 {
+  padding: 30px;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1.5px solid black;
+  min-height: 100vh;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: rgb(238, 238, 238);
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.table-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#add-student-container {
+  margin: 0 0 10px 0;
+}
+
+#add-student-name,
+#add-student-btn,
+#hide-grades,
+#grade-input,
+#add-grade-btn,
+.sort-grades {
+  font-size: 11px;
+  border-radius: 6px;
+  padding: 5px;
+  font-weight: 600;
+  border: none;
+}
+
+button {
+  background-color: #dddddd;
+  box-shadow: 1.6px 1.6px 1px gray;
+  padding: 3px;
+  border: none;
+}
+
+#add-student-name,
+#grade-input {
+  box-shadow: -1px -1px 1px gray;
+  width: 150px;
+}
+
+#students-table {
+  margin: 20px 0;
+}
+table {
+  border: 1px solid #890083;
+  border-spacing: 1px;
+}
+table th,
+table td {
+  border: 1px solid #890083;
+  font-size: 12px;
+  text-align: center;
+}
+
+#students-table th {
+  font-weight: bold;
+}
+
+#students-table td {
+  font-weight: normal;
+}
+
+#students-table td:nth-child(1),
+#students-table td:nth-child(2) {
+  padding: 3px;
+}
+
+#students-table th:last-child {
+  padding: 5px 15px;
+  white-space: normal;
+}
+
+.hide-grades {
+  display: none !important;
+}
+
+.show-grades,
+.delete-btn {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+  border-radius: 0;
+  border: none;
+}
+
+.delete-btn {
+  color: red;
+}
+
+#students-table tr td:nth-of-type(1) {
+  width: 40%;
+}
+
+#students-table tr td:nth-of-type(2) {
+  width: 20%;
+}
+
+#students-table tr td:nth-of-type(3) {
+  width: 30%;
+  border: none;
+}
+
+#students-table tr td:nth-of-type(4) {
+  width: 10%;
+  border: none;
+}
+
+.grades-table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grades-table-container > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grades-table-container div p {
+  font-size: 14px;
+}
+
+#add-grade {
+  margin: 20px 0;
+}
+
+#hide-grades {
+  margin: 20px;
+}
+
+.grades-table-container table {
+  background-color: white;
+  margin: 20px;
+}
+
+#grades-table {
+  font-weight: bold;
+}
+
+.grades-table-container th:nth-child(1) {
+  width: 80px;
+}
+
+.grades-table-container th:nth-child(2) {
+  width: 40px;
+}
