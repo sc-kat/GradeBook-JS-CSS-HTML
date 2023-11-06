@@ -5,63 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Catalog Note</title>
+    <title>Grades book</title>
   </head>
   <body>
     <div id="container">
-      <h1>CATALOG DE NOTE</h1>
+      <h1>GRADES BOOK</h1>
       <div id="add-student-container">
-        <input
-          type="text"
-          placeholder="Adaugati noul student"
-          id="add-student-name"
-        />
-        <button id="add-student-btn">Adauga</button>
+        <input type="text" placeholder="Student name" id="add-student-name" />
+        <button id="add-student-btn">Add</button>
       </div>
       <div class="table-container">
         <table id="students-table">
           <thead>
             <th>
-              Nume
+              Name
               <button id="sort-name-asc">↑</button>
               <button id="sort-name-desc">↓</button>
             </th>
             <th>
-              Medie note
+              Average grade
               <button id="sort-medie-asc">↑</button>
               <button id="sort-medie-desc">↓</button>
             </th>
-            <th>Note student</th>
-            <th>Sterge student</th>
+            <th>Grades</th>
+            <th>Delete student</th>
           </thead>
           <tbody id="students-table-body"></tbody>
         </table>
         <div class="grades-table-container hide-grades">
           <div>
-            <button id="hide-grades">Ascunde notele</button>
-            <p>Note student: <span id="student-name-note"></span></p>
+            <button id="hide-grades">Hide grades</button>
+            <p>Student: <span id="student-name-grades"></span></p>
           </div>
           <div id="add-grade">
             <input
               type="number"
-              placeholder="Introduceti nota"
+              placeholder="Add grade"
               min="1"
               max="10"
               id="grade-input"
             />
-            <button id="add-grade-btn">Adauga nota studentului</button>
+            <button id="add-grade-btn">Add</button>
           </div>
           <div>
-            <button class="sort-grades-asc sort-grades">
-              Sortare crescatoare
-            </button>
+            <button class="sort-grades-asc sort-grades">Sort ascending</button>
             <button class="sort-grades-desc sort-grades">
-              Sortare descrescatoare
+              Sort descending
             </button>
           </div>
           <table>
             <thead>
-              <th>Note</th>
+              <th>Grades</th>
               <th>X</th>
             </thead>
             <tbody id="grades-table"></tbody>

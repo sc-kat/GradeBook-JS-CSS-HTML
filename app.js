@@ -31,13 +31,13 @@ function addNewStudent(e) {
       const newStudent = {
         id: newStudendId,
         name: studentNameInput.value,
-        medieNote: 0,
-        note: [],
+        gradeAverage: 0,
+        grades: [],
       };
       students.push(newStudent);
       addNewRowToStudentsTable(newStudent, studentTableBody);
     } else {
-      alert("Compleaza campul cu numele studentului.");
+      alert("The student name must be added.");
     }
   }
 }
@@ -56,10 +56,10 @@ const sortAscByMedieBtn = document.getElementById("sort-medie-asc");
 const sortDescByMedieBtn = document.getElementById("sort-medie-desc");
 
 sortAscByMedieBtn.addEventListener("click", () =>
-  sortStudents(students, "ASC", "medieNote", studentTableBody)
+  sortStudents(students, "ASC", "gradeAverage", studentTableBody)
 );
 sortDescByMedieBtn.addEventListener("click", () =>
-  sortStudents(students, "DESC", "medieNote", studentTableBody)
+  sortStudents(students, "DESC", "gradeAverage", studentTableBody)
 );
 
 const sortGradesAsc = document.querySelector(".sort-grades-asc");
@@ -69,9 +69,9 @@ sortGradesAsc.addEventListener("click", sortingGradesAsc);
 
 function sortingGradesAsc() {
   selectedStudent = students.find(
-    (student) => studentNameNotes.innerText === student.name
+    (student) => studentNameGrades.innerText === student.name
   );
-  const grades = selectedStudent.note;
+  const grades = selectedStudent.grades;
   grades.sort((grade1, grade2) => grade1 - grade2);
   updateGradesTable(selectedStudent, gradesTableBody);
 }
@@ -79,16 +79,16 @@ sortGradesDesc.addEventListener("click", sortingGradesDesc);
 
 function sortingGradesDesc() {
   selectedStudent = students.find(
-    (student) => studentNameNotes.innerText === student.name
+    (student) => studentNameGrades.innerText === student.name
   );
-  const grades = selectedStudent.note;
+  const grades = selectedStudent.grades;
   grades.sort((grade1, grade2) => grade2 - grade1);
   updateGradesTable(selectedStudent, gradesTableBody);
 }
 
 const studentsTableBody = document.getElementById("students-table-body");
 const gradesTableBody = document.getElementById("grades-table");
-const studentNameNotes = document.getElementById("student-name-note");
+const studentNameGrades = document.getElementById("student-name-grades");
 
 studentsTableBody.addEventListener("click", handleStudentsActions);
 gradesTableBody.addEventListener("click", handleGradesActions);
@@ -103,7 +103,7 @@ function handleStudentsActions(e) {
     gradesTableContainer.classList.remove("hide-grades");
 
     selectedStudent = students.find((student) => buttonId === student.id);
-    studentNameNotes.innerText = selectedStudent.name;
+    studentNameGrades.innerText = selectedStudent.name;
     updateGradesTable(selectedStudent, gradesTableBody);
   }
 }
@@ -111,8 +111,8 @@ function handleStudentsActions(e) {
 function handleGradesActions(e) {
   if (e.target.classList.contains("delete-grade")) {
     const gradeIndex = Number(e.target.id);
-    selectedStudent.note.splice(gradeIndex, 1);
-    selectedStudent.medieNote = calculateAverage(selectedStudent.note);
+    selectedStudent.grades.splice(gradeIndex, 1);
+    selectedStudent.gradeAverage = calculateAverage(selectedStudent.grades);
     updateGradesTable(selectedStudent, gradesTableBody);
     updateStudentsTable(students, studentTableBody);
   }
@@ -127,12 +127,12 @@ function addGrade() {
   if (gradeInput.value > 0 && gradeInput.value <= 10) {
     const grade = Number(gradeInput.value);
     console.log(selectedStudent);
-    selectedStudent.note.push(grade);
-    selectedStudent.medieNote = calculateAverage(selectedStudent.note);
+    selectedStudent.grades.push(grade);
+    selectedStudent.gradeAverage = calculateAverage(selectedStudent.grades);
     updateGradesTable(selectedStudent, gradesTableBody);
     updateStudentsTable(students, studentTableBody);
   } else {
-    alert("Nota nu este valida.");
+    alert("The grade does not meet the requirements.");
   }
 }
 
