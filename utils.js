@@ -46,6 +46,23 @@ export function sortStudents(students, sortingOrder, by, tableBodyElement) {
   }
   updateStudentsTable(students, tableBodyElement);
 }
+export function sortingGrades(
+  students,
+  sortingOrder,
+  studentNameGrades,
+  gradesTableBody
+) {
+  let selectedStudent = students.find(
+    (student) => studentNameGrades.innerText === student.name
+  );
+  const grades = selectedStudent.grades;
+  if (sortingOrder === "ASC") {
+    grades.sort((grade1, grade2) => grade1 - grade2);
+  } else if (sortingOrder === "DESC") {
+    grades.sort((grade1, grade2) => grade2 - grade1);
+  }
+  updateGradesTable(selectedStudent, gradesTableBody);
+}
 
 export function updateGradesTable(student, gradesTableBody) {
   gradesTableBody.innerHTML = student.grades

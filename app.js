@@ -6,6 +6,7 @@ import {
   updateGradesTable,
   updateStudentsAverages,
   calculateAverage,
+  sortingGrades,
 } from "./utils.js";
 
 updateStudentsAverages(students);
@@ -65,26 +66,13 @@ sortDescByMedieBtn.addEventListener("click", () =>
 const sortGradesAsc = document.querySelector(".sort-grades-asc");
 const sortGradesDesc = document.querySelector(".sort-grades-desc");
 
-sortGradesAsc.addEventListener("click", sortingGradesAsc);
+sortGradesAsc.addEventListener("click", () =>
+  sortingGrades(students, "ASC", studentNameGrades, gradesTableBody)
+);
 
-function sortingGradesAsc() {
-  selectedStudent = students.find(
-    (student) => studentNameGrades.innerText === student.name
-  );
-  const grades = selectedStudent.grades;
-  grades.sort((grade1, grade2) => grade1 - grade2);
-  updateGradesTable(selectedStudent, gradesTableBody);
-}
-sortGradesDesc.addEventListener("click", sortingGradesDesc);
-
-function sortingGradesDesc() {
-  selectedStudent = students.find(
-    (student) => studentNameGrades.innerText === student.name
-  );
-  const grades = selectedStudent.grades;
-  grades.sort((grade1, grade2) => grade2 - grade1);
-  updateGradesTable(selectedStudent, gradesTableBody);
-}
+sortGradesDesc.addEventListener("click", () =>
+  sortingGrades(students, "DESC", studentNameGrades, gradesTableBody)
+);
 
 const studentsTableBody = document.getElementById("students-table-body");
 const gradesTableBody = document.getElementById("grades-table");
@@ -97,7 +85,7 @@ function handleStudentsActions(e) {
   if (e.target.classList.contains("delete-student")) {
     const buttonId = e.target.id;
     e.target.parentNode.parentNode.remove();
-    students.splice(buttonId, 1); // TO REMOVE STUDENT FROM ARRAY
+    students.splice(buttonId, 1);
   } else if (e.target.classList.contains("show-grades")) {
     const buttonId = e.target.id;
     gradesTableContainer.classList.remove("hide-grades");
