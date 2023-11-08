@@ -8,7 +8,9 @@ export function updateStudentsTable(students, tableBodyElement) {
          <td><button id=${
            student.id
          } class="show-grades">See / Add grades</button></td>
-         <td><button  class="delete-student delete-btn">X</button></td>
+         <td><button id=${
+           student.id
+         } class="delete-student delete-btn">X</button></td>
       </tr>
    `
     )
@@ -21,7 +23,7 @@ export function addNewRowToStudentsTable(student, tableBodyElement) {
          <td>${student.name}</td>
          <td>${student.gradeAverage}</td>
          <td><button id=${student.id} class="show-grades">See / Add grades</button></td>
-         <td><button  class="delete-student delete-btn">X</button></td>
+         <td><button id=${student.id} class="delete-student delete-btn">X</button></td>
       </tr>
    `;
 }

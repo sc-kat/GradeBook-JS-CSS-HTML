@@ -85,7 +85,11 @@ function handleStudentsActions(e) {
   if (e.target.classList.contains("delete-student")) {
     const buttonId = e.target.id;
     e.target.parentNode.parentNode.remove();
-    students.splice(buttonId, 1);
+    selectedStudent = students.find((student) => buttonId === student.id);
+    const index = students.findIndex(
+      (student1) => student1.name === selectedStudent.name
+    );
+    students.splice(index, 1);
   } else if (e.target.classList.contains("show-grades")) {
     const buttonId = e.target.id;
     gradesTableContainer.classList.remove("hide-grades");
